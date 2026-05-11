@@ -1,33 +1,57 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 public class Point {
-    public double x = (double)5.0F;
-    public double y = (double)10.0F;
+    private double x;
+    private double y;
+
+    // konstruktor bezargumentowy
+    public Point() {
+        this.x = 0;
+        this.y = 0;
+    }
+
+    // konstruktor z parametrami
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    // konstruktor kopiujący
+    public Point(Point p) {
+        this.x = p.x;
+        this.y = p.y;
+    }
+
+    // gettery
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    // settery
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
 
     public String toString() {
-        String napis = "x=" + this.x + " y=" + this.y;
-        return napis;
+        return "x=" + x + " y=" + y;
     }
 
     public String toSvg() {
-        String napis = "  <circle r=\"45\" cx=\"" + this.x + "\" cy=\"" + this.y + "\" fill=\"red\" />";
-        return napis;
+        return "<circle r=\"5\" cx=\"" + x + "\" cy=\"" + y + "\" fill=\"red\" />";
     }
 
-    public String translate(double dx, double dy) {
-        this.x += dx;
-        this.y += dy;
-        String napis = "x teraz wynosi: " + this.x + " y teraz wynosi: " + this.y;
-        return napis;
+    public void translate(double dx, double dy) {
+        x += dx;
+        y += dy;
     }
 
     public Point translated(double dx, double dy) {
-        Point nowy = new Point();
-        nowy.x = this.x + dx;
-        nowy.y = this.y + dy;
-        return nowy;
+        return new Point(x + dx, y + dy);
     }
 }
